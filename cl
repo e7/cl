@@ -66,9 +66,9 @@ function main
             echo "[ERROR] seem that you don't have realpath installed."
             exit -1
         fi
-        src=`./realpath ${src}`
+        src=`realpath ${src}`
         printf "source: "${src}"\n"
-        dest=`./realpath ${dest}`
+        dest=`realpath ${dest}`
         printf "destination: "${dest}"\n"
 
         #不允许目的目录是源目录的子目录
