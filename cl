@@ -61,7 +61,11 @@ function main
         fi
 
         #获得绝对路径
-        cd `dirname $0`
+        which realpath
+        if   [ 0 != $? ]; then
+            echo "[ERROR] seem that you don't have realpath installed."
+            exit -1
+        fi
         src=`./realpath ${src}`
         printf "source: "${src}"\n"
         dest=`./realpath ${dest}`
