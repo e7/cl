@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function sub_string
+sub_string()
 {
     src_str=$1
     sub_str=$2
@@ -12,7 +12,7 @@ function sub_string
     fi
 }
 
-function cl
+cl()
 {
     #$1 -- 源目录:$2 -- 镜像目录
     echo "[INFO] new loop"
@@ -41,7 +41,7 @@ function cl
     return 0
 }
 
-function main
+main()
 {
     src=$1
     dest=$2
