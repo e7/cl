@@ -86,7 +86,7 @@ main()
         if   [ ! -w ${dest} ]; then
             exit -1
         fi
-    
+
         # 获取目标目录git分支信息
         cd ${src}
         git_branch=`git branch`
@@ -101,8 +101,10 @@ main()
 
         # 打印分支信息\
         if [ 0 = $? ]; then
-            echo "\ngit branch for mirror:"
-            echo "${git_branch}\n"
+            echo
+            echo "git branch for mirror:"
+            echo "${git_branch}"
+            echo
         fi
     fi
 
