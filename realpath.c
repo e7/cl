@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
         if (-1 == ret) {
             printf("[ERROR] get realpath failed.\n");
         } else {
-            printf("%s", p_realpath);
+            printf("%s\n", p_realpath);
         }
         free(p_realpath);
     } else {
