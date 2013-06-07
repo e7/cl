@@ -53,18 +53,18 @@ main()
         if   [ ! -x ${src} ]; then
             printf 'source directory does NOT exist or '
             printf 'you do NOT have permission.\n'
-            exit -1
+            exit 1
         elif [ ! -x $dest ]; then
             printf 'destination directory does NOT exist or '
             printf 'you do NOT have permission.\n'
-            exit -1
+            exit 1
         fi
 
         # 获得绝对路径
         which realpath
         if   [ 0 != $? ]; then
             echo "[ERROR] seem that you don't have realpath installed."
-            exit -1
+            exit 1
         fi
         src=`realpath ${src}`
         printf "source: "${src}"\n"
@@ -76,7 +76,7 @@ main()
         if [ 1 = $? ]; then
             printf "[ERROR] the mirror directory can NOT be created in "
             printf "the source one's dir-tree.\n"
-            exit -1
+            exit 1
         fi
 
         mirror=${dest}/`basename ${src}`
@@ -84,7 +84,7 @@ main()
 
         # 检测目标目录写权限
         if   [ ! -w ${dest} ]; then
-            exit -1
+            exit 1
         fi
 
         # 获取目标目录git分支信息
@@ -92,7 +92,7 @@ main()
         git_branch=`git branch`
         if [ $? -ne 0 ]; then
             printf "[ERROR] source directory is NOT a git repository!\n"
-            exit -1
+            exit 1
         fi
         cd -
 
